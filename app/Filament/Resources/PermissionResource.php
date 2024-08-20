@@ -28,6 +28,8 @@ class PermissionResource extends Resource
                 TextInput::make('name')
                 ->minLength (2)
                 ->maxLength (255)
+                ->required()
+                ->unique()
             ]);
     }
 
