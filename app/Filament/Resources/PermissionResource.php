@@ -30,7 +30,7 @@ class PermissionResource extends Resource
                     ->minLength (2)
                     ->maxLength (255)
                     ->required()
-                    ->unique()
+                    ->unique (ignoreRecord: true),
             ]);
     }
 
@@ -39,6 +39,7 @@ class PermissionResource extends Resource
         return $table
             ->columns([
                 TextColumn::make ('name')
+                ->searchable()                
             ])
             ->filters([
                 //
