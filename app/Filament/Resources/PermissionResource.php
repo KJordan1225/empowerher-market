@@ -7,13 +7,13 @@ use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PermissionResource\Pages;
 use App\Filament\Resources\PermissionResource\RelationManagers;
-use Filament\Tables\Columns\TextColumn;
-use Spatie\Permission\Models\Permission;
 
 class PermissionResource extends Resource
 {
@@ -24,12 +24,12 @@ class PermissionResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
+            ->schema([                
                 TextInput::make('name')
-                ->minLength (2)
-                ->maxLength (255)
-                ->required()
-                ->unique()
+                    ->minLength (2)
+                    ->maxLength (255)
+                    ->required()
+                    ->unique()
             ]);
     }
 
@@ -44,6 +44,7 @@ class PermissionResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
