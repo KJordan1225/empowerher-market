@@ -9,11 +9,20 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\MyJob;
 use App\Models\Service;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\Permission\Traits\HasRoles;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles;
+
+    public function canAccessPanel(Panel $panel): bool {
+        return $this->hasRole('Admin');
+    }
+
+    
 
     /**
      * The attributes that are mass assignable.
