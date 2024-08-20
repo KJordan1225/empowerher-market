@@ -24,6 +24,8 @@ class MyJobResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Jobs';
+
     public static function form(Form $form): Form
     {
                
