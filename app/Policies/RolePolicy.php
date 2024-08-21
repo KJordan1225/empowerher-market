@@ -13,7 +13,7 @@ class RolePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->hasRole('Admin');
     }
 
     /**
@@ -29,7 +29,7 @@ class RolePolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasRole('Admin');
     }
 
     /**
@@ -37,7 +37,7 @@ class RolePolicy
      */
     public function update(User $user, Role $role)
     {
-        //
+        return $user->hasRole('Admin');
     }
 
     /**
@@ -45,7 +45,7 @@ class RolePolicy
      */
     public function delete(User $user, Role $role)
     {
-        //
+        return $user->hasRole('Admin');
     }
 
     /**
