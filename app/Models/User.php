@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\MyJob;
 use App\Models\Service;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Permission\Traits\HasRoles;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
@@ -67,5 +68,13 @@ class User extends Authenticatable implements FilamentUser
     public function services():HasMany
     {
         return $this->hasMany(Service::class);
+    }
+
+    /**
+     * Get the profile associated with the user.
+     */
+    public function profile(): HasOne
+    {
+        return $this->hasOne(Profile::class);
     }
 }
