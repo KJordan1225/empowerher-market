@@ -8,7 +8,7 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Resources\Pages\Page;
-use Spatie\Permission\Models\Role;
+use App\Models\Role;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
@@ -23,7 +23,7 @@ class RoleResource extends Resource
     protected static ?string $model = Role::class;
     protected static ?string $navigationIcon = 'heroicon-o-finger-print';
     protected static ?string $navigationGroup = 'User settings';
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
@@ -77,4 +77,9 @@ class RoleResource extends Resource
             'edit' => Pages\EditRole::route('/{record}/edit'),
         ];
     }
+
+    public static function getEloquentQuery(): Builder
+	{
+		return parent::getEloquentQuery()->where('name', '!=', 'Admin');
+	}
 }

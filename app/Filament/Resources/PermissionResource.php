@@ -9,7 +9,7 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
-use Spatie\Permission\Models\Permission;
+use App\Models\Permission;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PermissionResource\Pages;
@@ -20,7 +20,7 @@ class PermissionResource extends Resource
     protected static ?string $model = Permission::class;
     protected static ?string $navigationIcon = 'heroicon-o-key';
     protected static ?string $navigationGroup = 'User settings';
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
