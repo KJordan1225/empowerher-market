@@ -213,7 +213,7 @@
 											<img src="{{asset('assets/images/user-img.jpg') }}" alt="image description">
 										</figure>
 										<div class="wt-username">
-											<h3>Louanne Mattioli</h3>
+											<h3>{{auth()->user()->name}}</h3>
 											<span>Amento Tech</span>
 										</div>
 										@else
@@ -246,11 +246,18 @@
 																<li><a href="dashboard-insightsuser.html">Insights User</a></li>
 															</ul>
 														</li> -->
-														<li>
+                                                        @if(auth()->user()->hasRole('Freelancer'))
+														<li class="menu-item-has-children page_item_has_children">
 															<a href="dashboard-profile.html">
 																<span>My Profile</span>
 															</a>
+                                                            <ul class="sub-menu children">
+																<li><a href="#">Create My Profile</a></li>
+																<li><a href="#">Edit My Profile</a></li>
+                                                                <li><a href="#">Delete My Profile</a></li>
+															</ul>
 														</li>
+                                                        @endif
 														<!-- <li class="menu-item-has-children">
 															<a href="javascript:void(0);">
 																<span>All Jobs</span>
