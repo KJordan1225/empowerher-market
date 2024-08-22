@@ -252,9 +252,13 @@
 																<span>My Profile</span>
 															</a>
                                                             <ul class="sub-menu children">
-																<li><a href="#">Create My Profile</a></li>
-																<li><a href="#">Edit My Profile</a></li>
-                                                                <li><a href="#">Delete My Profile</a></li>
+                                                                @if(is_null(auth()->user()->profile))
+																    <li><a href="#">Create My Profile</a></li>
+                                                                @else
+																    <li><a href="#">Edit My Profile</a></li>
+                                                                    <li><a href="#">Delete My Profile</a></li>
+                                                                @endif
+                                                                
 															</ul>
 														</li>
                                                         @endif
