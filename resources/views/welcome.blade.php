@@ -185,8 +185,8 @@
 											<img src="{{asset('assets/images/user-img.jpg') }}" alt="image description">
 										</figure>
 										<div class="wt-username">
-											<h3>Louanne Mattioli</h3>
-											<span>Amento Tech</span>
+											<h3>{{auth()->user()->name}}</h3>
+											<span></span>
 										</div>
 										@else
 										<div class="wt-username">
