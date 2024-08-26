@@ -214,7 +214,7 @@
 										</figure>
 										<div class="wt-username">
 											<h3>{{auth()->user()->name}}</h3>
-											<span>Amento Tech</span>
+											<span></span>
 										</div>
 										@else
 										<div class="wt-username">
@@ -253,7 +253,7 @@
 															</a>
                                                             <ul class="sub-menu children">
                                                                 @if(is_null(auth()->user()->profile))
-																    <li><a href="#">Create My Profile</a></li>
+																    <li><a href="{{route('profile.create')}}">Create My Profile</a></li>
                                                                 @else
 																    <li><a href="#">Edit My Profile</a></li>
                                                                     <li><a href="#">Delete My Profile</a></li>
